@@ -1,0 +1,48 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateKelasTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('kelas', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('slug');
+            $table->string('image');
+            $table->string('type');
+            $table->text('description');
+            $table->string('harga');
+            $table->softDeletes();
+            $table->timestamps();
+        });
+
+         Schema::create('kelas_materi', function (Blueprint $table) {
+            $table->integer('kelas_id');
+            $table->integer('materi_id');
+        });
+
+        Schema::create('kelas_include', function (Blueprint $table) {
+            $table->integer('kelas_id');
+            $table->integer('include_id');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('kelas');
+    }
+}
