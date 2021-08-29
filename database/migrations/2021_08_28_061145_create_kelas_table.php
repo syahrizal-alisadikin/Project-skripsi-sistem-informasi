@@ -30,9 +30,9 @@ class CreateKelasTable extends Migration
             $table->integer('materi_id');
         });
 
-        Schema::create('kelas_include', function (Blueprint $table) {
+        Schema::create('includes_kelas', function (Blueprint $table) {
             $table->integer('kelas_id');
-            $table->integer('include_id');
+            $table->integer('includes_id');
         });
     }
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Includes;
+use Illuminate\Validation\Rule;
 use Illuminate\Http\Request;
 
 class IncludesController extends Controller
@@ -39,11 +40,14 @@ class IncludesController extends Controller
 
     public function update(Request $request,$id)
     {
+        $includes = Includes::findOrFail($id);
         $this->validate($request, [
-            'name' => 'required|unique:materis',
+            'name' => [
+                        'required',
+                        Rule::unique('includes')->ignore($includes->id, 'id'),
+                    ],
         ]);
 
-        $includes = Includes::findOrFail($id);
         $includes->update([
             'name' => $request->name
         ]);

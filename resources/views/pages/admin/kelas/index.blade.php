@@ -26,7 +26,7 @@
                                 <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>
-                                         <a href="{{ route('includes.edit' , $item->id) }}" class="btn btn-sm btn-info">
+                                         <a href="{{ route('kelas.edit' , $item->id) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
                                     <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $item->id }}">
@@ -70,7 +70,7 @@
 
                     //ajax delete
                     jQuery.ajax({
-                        url: "{{ route("includes.index") }}/"+id,
+                        url: "{{ route("kelas.index") }}/"+id,
                         data:     {
                             "id": id,
                             "_token": token

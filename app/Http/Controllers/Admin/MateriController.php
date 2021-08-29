@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Materi;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
+
 
 class MateriController extends Controller
 {
@@ -39,11 +41,14 @@ class MateriController extends Controller
 
     public function update(Request $request,$id)
     {
+        $materi = Materi::findOrFail($id);
         $this->validate($request, [
-            'name' => 'required|unique:materis',
+            'name' => [
+                        'required',
+                        Rule::unique('materis')->ignore($materi->id, 'id'),
+                    ],
         ]);
 
-        $materi = Materi::findOrFail($id);
         $materi->update([
             'name' => $request->name
         ]);

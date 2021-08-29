@@ -10,7 +10,7 @@
                         
                         <div class="card-body">
                             <h4 class="text-center">Update Includes</h4>
-                            <form action="{{route('includes.update',$materi->id)}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('includes.update',$includes->id)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method("PUT")
                                 <div class="form-group">
