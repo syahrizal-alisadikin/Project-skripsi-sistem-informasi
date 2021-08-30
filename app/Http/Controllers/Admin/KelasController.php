@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Includes;
+use App\Instruktur;
 use App\Kelas;
 use App\Materi;
 use Illuminate\Http\Request;
@@ -23,7 +24,8 @@ class KelasController extends Controller
     {
         $materi = Materi::all();
         $includes = Includes::all();
-        return view('pages.admin.kelas.create',compact('materi','includes'));
+        $instruktur = Instruktur::where("status","Active")->get();
+        return view('pages.admin.kelas.create',compact('materi','includes',"instruktur"));
     }
 
     public function store(Request $request)
@@ -41,6 +43,7 @@ class KelasController extends Controller
         $kelas = Kelas::create([
             'image'         => $image->hashName(),
             'name'          => $request->name,
+            'instruktur_id' => $request->instruktur_id,
             'slug'          => Str::slug($request->name),
             'type'          => $request->type,
             'description'   => $request->description,
@@ -65,8 +68,9 @@ class KelasController extends Controller
         $kelas = Kelas::find($id);
         $materi = Materi::all();
         $includes = Includes::all();
+        $instruktur = Instruktur::where("status","Active")->get();
         
-        return view('pages.admin.kelas.edit',compact('kelas','materi','includes'));
+        return view('pages.admin.kelas.edit',compact('kelas','materi','includes',"instruktur"));
     }
 
     public function update(Request $request,$id)
@@ -83,10 +87,12 @@ class KelasController extends Controller
             $kelas = Kelas::findOrFail($id);
             $kelas->update([
                 'name'          => $request->name,
+                'instruktur_id' => $request->instruktur_id,
                 'slug'          => Str::slug($request->name),
                 'type'          => $request->type,
                 'description'   => $request->description,
-                'harga'         => $request->harga  
+                'harga'         => $request->harga,
+
                 ]);
 
         } else {
@@ -103,6 +109,8 @@ class KelasController extends Controller
             $kelas->update([
                 'image'         => $image->hashName(),
                 'name'          => $request->name,
+                'instruktur_id' => $request->instruktur_id,
+
                 'slug'          => Str::slug($request->name),
                 'type'          => $request->type,
                 'description'   => $request->description,

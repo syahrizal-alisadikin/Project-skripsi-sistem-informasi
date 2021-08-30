@@ -21,6 +21,7 @@ class CreateKelasTable extends Migration
             $table->string('type');
             $table->text('description');
             $table->string('harga');
+            $table->integer('instruktur_id');
             $table->softDeletes();
             $table->timestamps();
         });

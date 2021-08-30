@@ -12,6 +12,14 @@
                                 @csrf
                                 @method("PUT")
                                 <div class="form-group">
+                                    <label for="name">Instruktur</label>
+                                    <select name="instruktur_id" class="form-control" id="">
+                                        @foreach ($instruktur as $item)
+                                            <option value="{{ $item->id }}" {{ $item->id == $kelas->instruktur_id ? 'selected' : ''}}>{{ $item->name }}</option>
+                                        @endforeach
+                                    </select> 
+                                </div>
+                                <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Masukan Name Kelas" value="{{ old('name',$kelas->name) }}" required>
                                     @error('name')

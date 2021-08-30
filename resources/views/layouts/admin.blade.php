@@ -112,6 +112,20 @@
           <span>CUSTOMERS</span>
         </a>
     </li>
+     <!-- Nav Item - Pages Collapse Menu -->
+      <li class="nav-item {{ Request::is('admin/peserta*') ? ' active' :  '' }} {{ Request::is('admin/instruktur*') ? ' active' :  '' }}">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <i class="fa fa-users"></i>
+          <span>USER</span>
+        </a>
+        <div id="collapseTwo" class="collapse {{ Request::is('admin/peserta*') ? ' show' :  '' }} {{ Request::is('admin/instruktur*') ? ' show' :  '' }}" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+          <div class="bg-white py-2 collapse-inner rounded">
+            <h6 class="collapse-header">PESERTA & INSTRUKTUR</h6>
+            <a class="collapse-item {{ Request::is('admin/peserta*') ? ' active' : '' }}" href="{{route('peserta.index')}}">PESERTA</a>
+            <a class="collapse-item {{ Request::is('admin/instruktur*') ? ' active' : '' }}" href="{{route('instruktur.index')}}">INSTRUKTUR</a>
+          </div>
+        </div>
+      </li>
 
       
 

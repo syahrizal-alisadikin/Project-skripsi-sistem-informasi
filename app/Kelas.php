@@ -9,7 +9,7 @@ class Kelas extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ["name","slug","type","image","description","harga"];
+    protected $fillable = ["name","slug","type","image","description","harga","instruktur_id"];
 
     public function getImageAttribute($image)
     {

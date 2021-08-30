@@ -11,6 +11,14 @@
                             <form action="{{route('kelas.store')}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group">
+                                    <label for="name">Instruktur</label>
+                                    <select name="instruktur_id" class="form-control" id="">
+                                        @foreach ($instruktur as $item)
+                                            <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                        @endforeach
+                                    </select> 
+                                </div>
+                                <div class="form-group">
                                     <label for="name">Name</label>
                                     <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Masukan Name Kelas" value="{{ old('name') }}" required>
                                     @error('name')
@@ -70,7 +78,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="harga">Harga</label>
-                                    <input type="number" class="form-control" required name="harga" placeholder="Masukan Harga">
+                                    <input type="number" class="form-control" value="{{ old('harga') }}" required name="harga" placeholder="Masukan Harga">
                                 </div>
                                 <div class="form-group">
                                     <button type="submit" class="btn btn-primary">Tambah</button>

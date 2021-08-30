@@ -29,6 +29,8 @@ Route::prefix('admin')
         Route::resource('materi','MateriController');
         Route::resource('includes','IncludesController');
         Route::resource('customer','CustomerController');
+        Route::resource('peserta','PesertaController');
+        Route::resource('instruktur','InstrukturController');
     });
 Auth::routes();
 
