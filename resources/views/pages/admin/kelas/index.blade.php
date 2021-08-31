@@ -15,7 +15,9 @@
                             <tr class="text-center">
                                 <th>No</th>
                                 <th>Name</th>
-                                
+                                <th>Type</th>
+                                <th>Harga</th>
+                                <th>Gambar</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -25,6 +27,10 @@
                             <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->name }}</td>
+                                    <td>{{ $item->type }}</td>
+                                    <td>Rp{{ number_format($item->harga,0,",",".") }}</td>
+                                    <td><img src="{{ $item->image }}" style="width: 150px" alt=""></td>
+
                                     <td>
                                          <a href="{{ route('kelas.edit' , $item->id) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-pencil-alt"></i>
