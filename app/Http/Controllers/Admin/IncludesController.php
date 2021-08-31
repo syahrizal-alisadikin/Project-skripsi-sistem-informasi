@@ -23,7 +23,7 @@ class IncludesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:materis',
+            'name' => 'required',
         ]);
 
         Includes::create([

@@ -31,7 +31,7 @@ class KelasController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required|unique:kelas',
+            'name' => 'required',
             'image' => 'required',
             'type' => 'required',
             'description' => 'required',
