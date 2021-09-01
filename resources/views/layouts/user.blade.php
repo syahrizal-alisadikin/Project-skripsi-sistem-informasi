@@ -9,7 +9,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>Store - Your Best Marketplace</title>
+    <title>{{ $title ?? config('app.name') }} - User</title>
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="{{url('style/main.css')}}" rel="stylesheet" />
@@ -40,12 +40,12 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="index.html"
+              <a class="nav-link" href="{{route('home')}}"
                 >Beranda <span class="sr-only">(current)</span></a
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="/categories.html">Tutorial</a>
+              <a class="nav-link" href="#">Tutorial</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Jadwal</a>

@@ -35,7 +35,7 @@
                   ></div>
                 </div>
                   <div class="products-text">Beginner</div>
-                  <a class="btn btn-join p-1 mt-1" href="#">Join
+                  <a class="btn btn-join p-1 mt-1" href="{{ route('detail')}}">Join
                   </a>
               </div>
             </div>
@@ -48,7 +48,7 @@
                   ></div>
                 </div>
                   <div class="products-text">Beginner</div>
-                  <a class="btn btn-join p-1 mt-1" href="#">Join
+                  <a class="btn btn-join p-1 mt-1" href="{{ route('detail')}}">Join
                   </a>
               </div>
             </div>

@@ -13,11 +13,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('pages.user.home');
-});
+// Route::get('/', function () {
+//     return view('pages.user.home');
+// });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/Detail-Class', 'UserController@detail')->name('detail');
+Route::get('/Payment-Class', 'UserController@payment')->name('payment');
+Route::get('/Class', 'UserController@kelas')->name('class');
+Route::get('/Detail-Payment', 'UserController@detailPayment')->name('detailPayment');
 
 Route::prefix('admin')
     ->namespace('Admin')
