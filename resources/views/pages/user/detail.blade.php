@@ -26,102 +26,41 @@
                 <div class="benefit-class">
                   <h4 class="font-weight-bold">Pelaran yang di cakup</h4>
                   <div class="row">
+                   @foreach ($materies as $materi)
                     <div class="col-lg-6">
-                  @foreach ($termasuk->includes as $include)
-                      <div class="form-group mb-0">
-                        <input
-                          type="checkbox"
-                          checked
-                          class="custom-checkbox"
-                        />
-                        <label>{{dd($include->name)}}</label>
+                          @if (in_array($materi->id, $kelas->materi()->pluck('id')->toArray()))
+                              <div class="form-group mb-0">
+                              <input
+                                type="checkbox"
+                                checked
+                                class="custom-checkbox"
+                              />
+                              <label>{{$materi->name}}</label>
+                            </div>
+                           @endif
                       </div>
-                  @endforeach
-                      
-                      <div class="form-group mb-0">
-                        <input
-                          type="checkbox"
-                          checked
-                          class="custom-checkbox"
-                        />
-                        <label>Keselamatan</label>
-                      </div>
-                      <div class="form-group mb-0">
-                        <input
-                          type="checkbox"
-                          checked
-                          class="custom-checkbox"
-                        />
-                        <label>Memilih kondisi selancar yang tepat</label>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group mb-0">
-                        <input
-                          type="checkbox"
-                          checked
-                          class="custom-checkbox"
-                        />
-                        <label>Good Teknik</label>
-                      </div>
-                      <div class="form-group mb-0">
-                        <input
-                          type="checkbox"
-                          checked
-                          class="custom-checkbox"
-                        />
-                        <label>Etika berselancar</label>
-                      </div>
-                      <div class="form-group">
-                        <input
-                          type="checkbox"
-                          checked
-                          class="custom-checkbox"
-                        />
-                        <label>Putaran Forehand and Backhand</label>
-                      </div>
-                    </div>
+                      @endforeach
                   </div>
                 </div>
                 <div class="include-class mb-5">
                   <h4 class="font-weight-bold">Include</h4>
                   <div class="row">
+                    @foreach ($includes as $include)
                     <div class="col-lg-6">
-                      <div class="form-group mb-0">
-                        <input
-                          type="checkbox"
-                          checked
-                          class="custom-checkbox"
-                        />
-                        <label>2,5 jam/hari</label>
+                          @if (in_array($include->id, $kelas->includes()->pluck('id')->toArray()))
+                              <div class="form-group mb-0">
+                              <input
+                                type="checkbox"
+                                checked
+                                class="custom-checkbox"
+                              />
+                              <label>{{$include->name}}</label>
+                            </div>
+                           @endif
                       </div>
-                      <div class="form-group mb-0">
-                        <input
-                          type="checkbox"
-                          checked
-                          class="custom-checkbox"
-                        />
-                        <label>T-shirt</label>
-                      </div>
-                    </div>
-                    <div class="col-lg-6">
-                      <div class="form-group mb-0">
-                        <input
-                          type="checkbox"
-                          checked
-                          class="custom-checkbox"
-                        />
-                        <label>Papan Selancar</label>
-                      </div>
-                      <div class="form-group mb-0">
-                        <input
-                          type="checkbox"
-                          checked
-                          class="custom-checkbox"
-                        />
-                        <label>Transportation</label>
-                      </div>
-                    </div>
+                      @endforeach
+                      
+                    
                   </div>
                 </div>
               </div>

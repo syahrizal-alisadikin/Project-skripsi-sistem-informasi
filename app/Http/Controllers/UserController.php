@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Kelas;
 use App\Includes;
+use App\Materi;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -11,10 +12,12 @@ class UserController extends Controller
     public function detail(Request $request, $slug)
     {
         $kelas = Kelas::where('slug', $slug)->firstOrFail();
-        // dd($termasuk);
+        $materies = Materi::all();
+        $includes = Includes::all();
         return view('pages.user.detail',[
             'kelas' => $kelas,
-            // 'termasuk' => $termasuk
+            'includes' => $includes,
+            'materies' => $materies
         ]);
     }
     public function payment(Request $request)
