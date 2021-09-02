@@ -96,6 +96,7 @@ class KelasController extends Controller
                 ]);
 
         } else {
+            $kelas = Kelas::findOrFail($id);
 
             //remove old image
             Storage::disk('local')->delete('public/kelas/'.basename($kelas->image));
