@@ -30,7 +30,7 @@
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div class="component-products ">
                 <div class="products-thumbnail">
-                <img src="{{ Storage::url($class->image) }}" class="img-fluid products-image">
+                <img src="{{ $class->image }}" class="img-fluid products-image">
                 </div>
                   <div class="products-text">{{$class->name}}</div>
                   <a class="btn btn-join p-1 mt-1" href="{{ route('detail', $class->slug) }}">Join
