@@ -11,38 +11,33 @@
             >
               <div class="card-body">
                 <div class="nama-class">
-                  <h4 class="font-weight-bold">Beginner</h4>
-                  <p>Kelas Pemula</p>
+                  <h4 class="font-weight-bold">{{$kelas->name}}</h4>
+                  <p>{{$kelas->type}}</p>
                 </div>
                 <img
-                  src="https://picsum.photos/750/400"
+                  src="{{Storage::url($kelas->image)}}"
                   class="img-fluid rounded"
                 />
                 <div class="desc-class text-justify mt-4">
                   <p>
-                    <b>Lorem ipsum</b> dolor sit amet, consectetur adipisicing
-                    elit. Molestiae doloribus ipsum, nobis aliquam, perspiciatis
-                    deleniti modi aut eaque quia exercitationem doloremque
-                    labore voluptates voluptate dolorem quaerat sequi! Vel,
-                    voluptate nihil? Lorem ipsum dolor sit, amet consectetur
-                    adipisicing elit. At libero, officiis doloremque numquam
-                    rerum dolor hic, delectus quo aspernatur quibusdam esse quam
-                    molestiae mollitia placeat. Accusamus delectus molestiae in
-                    optio?
+                    {!! $kelas->description !!}
                   </p>
                 </div>
                 <div class="benefit-class">
                   <h4 class="font-weight-bold">Pelaran yang di cakup</h4>
                   <div class="row">
                     <div class="col-lg-6">
+                  @foreach ($termasuk->includes as $include)
                       <div class="form-group mb-0">
                         <input
                           type="checkbox"
                           checked
                           class="custom-checkbox"
                         />
-                        <label>Identitas Ombak dan Cuaca</label>
+                        <label>{{dd($include->name)}}</label>
                       </div>
+                  @endforeach
+                      
                       <div class="form-group mb-0">
                         <input
                           type="checkbox"
@@ -137,8 +132,8 @@
             >
               <div class="card-body component-products">
                 <div class="nama-class">
-                  <h4 class="font-weight-bold">Beginner</h4>
-                  <p>Kelas Pemula</p>
+                  <h4 class="font-weight-bold">{{$kelas->name}}</h4>
+                  <p>{{$kelas->type}}</p>
                 </div>
                 <div class="form-group">
                   <label>Kedatangan</label>
@@ -152,11 +147,11 @@
                 </div>
                 <div class="form-group form-inline mb-0">
                   <label>Per/Day</label>
-                  <p class="text-right ml-auto mb-0">Rp. 250.000</p>
+                  <p class="text-right ml-auto mb-0">Rp.{{($kelas->harga)}}</p>
                 </div>
                 <div class="form-group font-weight-bold form-inline mt-2">
                   <label>Total</label>
-                  <p class="text-right ml-auto mb-0">Rp. 250.000</p>
+                  <p class="text-right ml-auto mb-0"></p>
                 </div>
                 <a href="{{route('payment')}}">
                   <button class="btn btn-join w-100 shadow">

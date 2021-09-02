@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Kelas;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('pages.user.home');
+        $kelas = Kelas::take(2)->get();
+        return view('pages.user.home',[
+            'kelas' => $kelas
+        ]);
     }
 }

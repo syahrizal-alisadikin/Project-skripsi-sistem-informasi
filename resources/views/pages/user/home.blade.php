@@ -26,32 +26,23 @@
             </div>
           </div>
           <div class="row">
+          @forelse ($kelas as $class)
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
               <div class="component-products ">
                 <div class="products-thumbnail">
-                  <div
-                    class="products-image"
-                    style="background-image: url(https://picsum.photos/250)"
-                  ></div>
+                <img src="{{ Storage::url($class->image) }}" class="img-fluid products-image">
                 </div>
-                  <div class="products-text">Beginner</div>
-                  <a class="btn btn-join p-1 mt-1" href="{{ route('detail')}}">Join
+                  <div class="products-text">{{$class->name}}</div>
+                  <a class="btn btn-join p-1 mt-1" href="{{ route('detail', $class->slug) }}">Join
                   </a>
               </div>
-            </div>
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-              <div class="component-products ">
-                <div class="products-thumbnail">
-                  <div
-                    class="products-image"
-                    style="background-image: url(https://picsum.photos/250)"
-                  ></div>
-                </div>
-                  <div class="products-text">Beginner</div>
-                  <a class="btn btn-join p-1 mt-1" href="{{ route('detail')}}">Join
-                  </a>
+              @empty
+              <div class="col-12 text-center py-5" data-aos="fade-up"
+                data-aos-delay="100">
+                No Class Found
               </div>
             </div>
+            @endforelse
           </div>
         </div>
       </section>
