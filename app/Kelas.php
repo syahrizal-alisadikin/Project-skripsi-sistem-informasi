@@ -25,4 +25,9 @@ class Kelas extends Model
     {
         return $this->belongsToMany(Includes::class);
     }
+
+    public function instruktur()
+    {
+        return $this->belongsTo(Instruktur::class);
+    }
 }

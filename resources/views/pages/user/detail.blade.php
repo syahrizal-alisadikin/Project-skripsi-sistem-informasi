@@ -12,7 +12,10 @@
               <div class="card-body">
                 <div class="nama-class">
                   <h4 class="font-weight-bold">{{$kelas->name}}</h4>
-                  <p>{{$kelas->type}}</p>
+                  <div class="d-flex">
+                    <p>{{$kelas->type}}</p> 
+                  <p class="ml-auto">{{$kelas->instruktur->name}}</p> 
+                  </div>
                 </div>
                 <img
                   src="{{$kelas->image}}"
@@ -100,11 +103,20 @@
                     <span id="total"></span>
                   </p>
                 </div>
+               @guest
+                 <a href="{{route('login')}}">
+                  <button class="btn btn-join w-100 shadow">
+                    Login Or Register
+                  </button>
+                </a>
+               @endguest
+               @auth
                 <a href="{{route('payment')}}">
                   <button class="btn btn-join w-100 shadow">
                     Beli Kelas
                   </button>
                 </a>
+               @endauth
               </div>
             </div>
           </div>

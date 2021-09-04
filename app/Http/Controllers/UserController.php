@@ -11,7 +11,8 @@ class UserController extends Controller
 {
     public function detail(Request $request, $slug)
     {
-        $kelas = Kelas::where('slug', $slug)->firstOrFail();
+        $kelas = Kelas::where('slug', $slug)->with('instruktur')->firstOrFail();
+        // dd($kelas);
         $materies = Materi::all();
         $includes = Includes::all();
         return view('pages.user.detail',[

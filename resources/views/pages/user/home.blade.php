@@ -27,7 +27,7 @@
           </div>
           <div class="row">
           @forelse ($kelas as $class)
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+            <div class="col-md-6 col-sm-12 ">
               <div class="component-products ">
                 <div class="products-thumbnail">
                 <img src="{{ $class->image }}" class="img-fluid products-image">
@@ -36,12 +36,13 @@
                   <a class="btn btn-join p-1 mt-1" href="{{ route('detail', $class->slug) }}">Join
                   </a>
               </div>
+              </div>
               @empty
               <div class="col-12 text-center py-5" data-aos="fade-up"
                 data-aos-delay="100">
                 No Class Found
               </div>
-            </div>
+            
             @endforelse
           </div>
         </div>
