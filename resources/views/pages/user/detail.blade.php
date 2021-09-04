@@ -100,7 +100,7 @@
                 <div class="form-group font-weight-bold form-inline mt-2">
                   <label >Total</label>
                   <p class="text-right ml-auto mb-0">Rp.
-                    <span id="total"></span>
+                    <span id="total">{{ $kelas->harga}}</span>
                   </p>
                 </div>
                @guest
