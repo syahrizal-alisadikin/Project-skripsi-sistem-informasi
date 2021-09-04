@@ -15,7 +15,7 @@
                   <p>{{$kelas->type}}</p>
                 </div>
                 <img
-                  src="{{Storage::url($kelas->image)}}"
+                  src="{{$kelas->image}}"
                   class="img-fluid rounded"
                 />
                 <div class="desc-class text-justify mt-4">
@@ -80,17 +80,25 @@
                 </div>
                 <div class="form-group">
                   <label>Duration</label>
-                  <select class="form-control">
-                    <option>3 hari</option>
+                  <select class="form-control" onfocus="starthitung()" onblur="hasil()" id="duration">
+                    <option value="1">1 hari</option>
+                    <option value="2" >2 hari</option>
+                    <option value="3">3 hari</option>
+                    <option value="4">4 hari</option>
+                    <option value="5">5 hari</option>
+                    <option value="6">6 hari</option>
+                    <option value="7">7 hari</option>
                   </select>
                 </div>
                 <div class="form-group form-inline mb-0">
                   <label>Per/Day</label>
-                  <p class="text-right ml-auto mb-0">Rp.{{($kelas->harga)}}</p>
+                  <p class="text-right ml-auto mb-0">Rp.<span id="day" onfocus="starthitung()" onblur="hasil()">{{($kelas->harga)}}</span></p>
                 </div>
                 <div class="form-group font-weight-bold form-inline mt-2">
-                  <label>Total</label>
-                  <p class="text-right ml-auto mb-0"></p>
+                  <label >Total</label>
+                  <p class="text-right ml-auto mb-0">Rp.
+                    <span id="total"></span>
+                  </p>
                 </div>
                 <a href="{{route('payment')}}">
                   <button class="btn btn-join w-100 shadow">
@@ -103,4 +111,22 @@
         </div>
       </section>
     </div>
+@endsection
+
+@section('addon-script')
+<script>
+function starthitung(){
+    interval = setInterval("hitung()",1);
+ }
+ function hitung(){
+    var duration = parseInt(document.getElementById("duration").value);
+    var day = parseInt(document.getElementById("day").innerHTML );
+    jumlah = duration * day;
+    console.log(jumlah);
+    document.getElementById("total").innerHTML  = jumlah;
+}
+function hasil(){
+    clearInterval(interval);
+}
+</script>
 @endsection

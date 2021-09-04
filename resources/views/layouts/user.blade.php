@@ -83,5 +83,6 @@
       AOS.init();
     </script>
     <script src="{{url('script/navbar-scroll.js')}}"></script>
+    @yield('addon-script')
   </body>
 </html>
