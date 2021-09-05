@@ -24,6 +24,7 @@ Route::get('/Kelas', 'UserController@kelas')->name('class')->middleware('auth');
 Route::post('/Checkout', 'UserController@checkout')->name('checkout');
 Route::post('/Payment-Class/{id}', 'UserController@payment')
     ->name('payment');
+Route::post('/checkout/callback', 'UserController@callback')->name('midtrans-callback');
 
 Route::prefix('admin')
     ->namespace('Admin')

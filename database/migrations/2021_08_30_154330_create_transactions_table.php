@@ -18,6 +18,7 @@ class CreateTransactionsTable extends Migration
             $table->integer('peserta_id');
             $table->enum('status',['pending','accept','cancel']);
             $table->string('total_harga');
+            $table->string('snap_token');
             $table->softDeletes();
             $table->timestamps();
         });

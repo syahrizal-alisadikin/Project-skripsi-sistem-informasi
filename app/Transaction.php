@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Transaction extends Model
 {
     use SoftDeletes;
-    protected $fillable = ["peserta_id",'status','total_harga'];
+    protected $fillable = ["peserta_id",'status','total_harga','snap_token'];
 
     public function peserta()
     {
