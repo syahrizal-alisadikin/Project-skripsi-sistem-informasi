@@ -41,7 +41,7 @@
                                         <span class="badge badge-danger">Cancel</span>
 
                                         @endif
-                                        {{ $item->status == "SUCCESS" ? 'Lunas' : 'Belum Lunas' }} </td>
+                                        </td>
                                     <td>
                                          {{-- <a href="{{ route('transaction.edit' , $item->id) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-pencil-alt"></i>
