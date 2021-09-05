@@ -77,13 +77,15 @@
                   <h4 class="font-weight-bold">{{$kelas->name}}</h4>
                   <p>{{$kelas->type}}</p>
                 </div>
+                <form action="{{ route('payment', $kelas->id) }}" method="post" class="form-group">
+                 @csrf
                 <div class="form-group">
                   <label>Kedatangan</label>
-                  <input type="date" class="form-control" />
+                  <input type="date" class="form-control" name="kedatangan" />
                 </div>
                 <div class="form-group">
                   <label>Duration</label>
-                  <select class="form-control" onfocus="starthitung()" onblur="hasil()" id="duration">
+                  <select class="form-control" name="duration" onfocus="starthitung()" onblur="hasil()" id="duration">
                     <option value="1">1 hari</option>
                     <option value="2" >2 hari</option>
                     <option value="3">3 hari</option>
@@ -101,6 +103,7 @@
                   <label >Total</label>
                   <p class="text-right ml-auto mb-0">Rp.
                     <span id="total">{{ $kelas->harga}}</span>
+                    <input type="hidden" value="{{ $kelas->harga }}" id="jumlah" name="total_harga" />
                   </p>
                 </div>
                @guest
@@ -110,12 +113,11 @@
                   </button>
                 </a>
                @endguest
-               @auth
-                <a href="{{route('payment')}}">
+               @auth                      
                   <button class="btn btn-join w-100 shadow">
                     Beli Kelas
                   </button>
-                </a>
+                </form>
                @endauth
               </div>
             </div>
@@ -136,6 +138,7 @@ function starthitung(){
     jumlah = duration * day;
     console.log(jumlah);
     document.getElementById("total").innerHTML  = jumlah;
+    document.getElementById("jumlah").value  = jumlah;
 }
 function hasil(){
     clearInterval(interval);

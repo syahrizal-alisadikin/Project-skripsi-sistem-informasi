@@ -25,21 +25,26 @@
                   </tr>
                 </thead>
                 <tbody>
+                @forelse ($peserta as $murid)
                   <tr>
-                    <td>Surf Beginner</td>
-                    <td>1 September 2021</td>
-                    <td>3 hari</td>
-                    <td>Rp. 750.000</td>
-                    <td>Pending</td>
-                    <td>
-                      <button
-                        class="btn btn-started w-100"
-                        style="background-color: #ccccccb4"
-                      >
-                        Detail
-                      </button>
-                    </td>
-                  </tr>
+                      <td>{{ $murid->kelas->name }}</td>
+                      <td>{{ $murid->kedatangan}}</td>
+                      <td>{{ $murid->durasi}}</td>
+                      <td>Rp. {{ $murid->transaction->total_harga}}</td>
+                      <td>{{ $murid->transaction->status }}</td>
+                      <td>
+                        <button
+                          class="btn btn-started w-100"
+                          style="background-color: #ccccccb4"
+                        >
+                          Detail
+                        </button>
+                      </td>
+                    </tr>
+                @empty
+
+                @endforelse
+                  
                 </tbody>
               </table>
             </div>

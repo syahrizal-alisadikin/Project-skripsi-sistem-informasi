@@ -106,7 +106,7 @@
       <div class="container">
         <div class="row mb-auto">
           <div class="col-12 text-center">
-            <div class="pt-5 pb-5">
+            <div class="pt-3 pb-2">
               <p><i>2021 Copyright Store Apache Surf</i></p>
             </div>
           </div>

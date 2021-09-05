@@ -12,65 +12,72 @@
                 Payment
               </h2>
             </div>
-            <div class="row">
-              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mx-auto">
-                <div class="form-inline justify-content-between">
-                  <p>Nama Kelas</p>
-                  <p>Beginer</p>
+            <form action="{{ route('checkout') }}" method="post" >
+                 @csrf
+              <div class="row">
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mx-auto">
+                  <div class="form-inline justify-content-between">
+                    <p>Nama Kelas</p>
+                    <p>{{ $kelas->name }}</p>
+                    <input type="hidden" value="{{$kelas->name}}" />
+                    <input type="hidden" value="{{$kelas->id}}" name="kelas_id" />
+                  </div>
+                  <div class="form-inline justify-content-between">
+                    <p>Durasi</p>
+                    <p>{{ $data['duration']}} Hari</p>
+                    <input type="hidden" name="durasi" value="{{ $data['duration']}}"  />
+                    <input type="hidden" name="kedatangan" value="{{ $data['kedatangan']}}"  />
+                  </div>
+                  <div class="form-inline justify-content-between">
+                    <p>Total Biaya</p>
+                    <p>Rp. {{ $data['total_harga'] }}</p>
+                    <input type="hidden" name="total_harga" value="{{ $data['total_harga'] }}" />
+                  </div>
                 </div>
-                <div class="form-inline justify-content-between">
-                  <p>Durasi</p>
-                  <p>3 Hari</p>
-                </div>
-                <div class="form-inline justify-content-between">
-                  <p>Total Biaya</p>
-                  <p>Rp. 750.000</p>
+                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mx-auto">
+                  <div class="form-inline justify-content-between">
+                    <p>Nama</p>
+                    <p>{{ Auth::user()->name }}</p>
+                  </div>
+                  <div class="form-inline justify-content-between">
+                    <p>No Hp</p>
+                    <p>{{ Auth::user()->phone }}</p>
+                  </div>
+                  <div class="form-inline justify-content-between">
+                    <p>E-mail</p>
+                    <p>{{ Auth::user()->email }}</p>
+                  </div>
                 </div>
               </div>
-              <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mx-auto">
-                <div class="form-inline justify-content-between">
-                  <p>Nama</p>
-                  <p>Daniel</p>
-                </div>
-                <div class="form-inline justify-content-between">
-                  <p>No Hp</p>
-                  <p>14045</p>
-                </div>
-                <div class="form-inline justify-content-between">
-                  <p>E-mail</p>
-                  <p>Daniel@14045.com</p>
-                </div>
-              </div>
-            </div>
-            <div class="row mt-4 component-products">
-              <div
-                class="
-                  col-lg-4 col-md-6 col-sm-12 col-xs-12
-                  mx-auto
-                  text-center
-                  ml-auto
-                "
-              >
-                <a href="{{route('detailPayment')}}">
-                  <button class="btn btn-join w-100">Bayar</button>
-                </a>
-              </div>
-              <div
-                class="
-                  col-lg-4 col-md-6 col-sm-12 col-xs-12
-                  mx-auto
-                  text-center
-                  ml-auto
-                "
-              >
-                <button
-                  class="btn btn-started w-100"
-                  style="background-color: #ccccccb4"
+              <div class="row mt-4 component-products">
+                <div
+                  class="
+                    col-lg-4 col-md-6 col-sm-12 col-xs-12
+                    mx-auto
+                    text-center
+                    ml-auto
+                  "
                 >
-                  Cancel
-                </button>
+                    <button class="btn btn-join w-100" type="submit">Bayar</button>
+                </div>
+                <div
+                  class="
+                    col-lg-4 col-md-6 col-sm-12 col-xs-12
+                    mx-auto
+                    text-center
+                    ml-auto
+                  "
+                >
+                  <a
+                    class="btn btn-started w-100"
+                    style="background-color: #ccccccb4"
+                    href="{{ route('detail', $kelas->slug) }}"
+                  >
+                    Cancel
+                  </a>
+                </div>
               </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>

@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Kelas;
 use App\Includes;
 use App\Materi;
+use App\Transaction;
+use App\Peserta;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -21,16 +24,45 @@ class UserController extends Controller
             'materies' => $materies
         ]);
     }
-    public function payment(Request $request)
+    public function payment(Request $request, $id)
     {
-        return view('pages.user.payment');
+        $kelas = Kelas::findOrFail($id);
+
+        $data = $request->all();
+
+        return view('pages.user.payment', [
+            'kelas' => $kelas,
+            'data' => $data
+        ]);
     }
     public function kelas(Request $request)
     {
-        return view('pages.user.kelas');
+        $peserta = Peserta::where('user_id', Auth::user()->id)->with([
+            'kelas','transaction'
+        ])->get();
+        return view('pages.user.kelas', [
+            'peserta' => $peserta
+        ]);
     }
-    public function detailPayment(Request $request)
+    public function detailPay(Request $request, $id)
     {
-        return view('pages.user.detailPayment');
+        
+    }
+    public function checkout(Request $request)
+    {
+        // dd($request->all());
+        $peserta = Peserta::create([
+            'user_id' => Auth::user()->id,
+            'kelas_id' => $request->kelas_id,
+            'durasi' => $request->durasi,
+            'kedatangan' => $request->kedatangan
+        ]);
+        $transaction = Transaction::create([
+            'peserta_id' => $peserta->id,
+            'status' => 'pending',
+            'total_harga' => $request->total_harga
+        ]);
+        
+        return redirect()->route('class')->with(['success', 'Kelas Berhasil Di Tambahkan']);
     }
 }
