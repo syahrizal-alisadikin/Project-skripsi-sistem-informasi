@@ -63,6 +63,6 @@ class UserController extends Controller
             'total_harga' => $request->total_harga
         ]);
         
-        return redirect()->route('class')->with(['success', 'Kelas Berhasil Di Tambahkan']);
+        return redirect()->route('class')->with('success', 'Kelas Berhasil Di Tambahkan');
     }
 }
