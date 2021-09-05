@@ -15,6 +15,10 @@
                             <tr class="text-center">
                                 <th>No</th>
                                 <th>Name</th>
+                                <th>Kelas</th>
+                                <th>Duration</th>
+                                <th>Kedatangan</th>
+                                <th>Instruktur</th>
                                 
                                 <th>Aksi</th>
                             </tr>
@@ -24,9 +28,13 @@
                             @forelse ($peserta as $item)
                             <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->peserta->name }}</td>
+                                    <td>{{ $item->peserta->user->name }}</td>
+                                    <td>{{ $item->peserta->kelas->type }}</td>
+                                    <td>{{ $item->peserta->durasi }}Hr</td>
+                                    <td>{{ $item->peserta->kedatangan }} </td>
+                                    <td>{{ $item->peserta->kelas->instruktur->name }} </td>
                                     <td>
-                                         <a href="{{ route('materi.edit' , $item->id) }}" class="btn btn-sm btn-info">
+                                         <a href="{{ route('peserta.edit' , $item->id) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
                                     <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $item->id }}">
@@ -70,7 +78,7 @@
 
                     //ajax delete
                     jQuery.ajax({
-                        url: "{{ route("materi.index") }}/"+id,
+                        url: "{{ route("peserta.index") }}/"+id,
                         data:     {
                             "id": id,
                             "_token": token

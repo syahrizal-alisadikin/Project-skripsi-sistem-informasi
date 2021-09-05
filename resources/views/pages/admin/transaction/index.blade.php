@@ -15,18 +15,26 @@
                             <tr class="text-center">
                                 <th>No</th>
                                 <th>Name</th>
+                                <th>Kelas</th>
+                                <th>Duration</th>
+                                <th>Bayar</th>
+                                <th>Status</th>
                                 
                                 <th>Aksi</th>
                             </tr>
                         </thead>
 
-                        {{-- <tbody>
-                            @forelse ($materies as $item)
-                            <tr class="text-center">
+                        <tbody>
+                            @forelse ($transactions as $item)
+                             <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->name }}</td>
+                                    <td>{{ $item->peserta->user->name }}</td>
+                                    <td>{{ $item->peserta->kelas->type }}</td>
+                                    <td>{{ $item->peserta->durasi }}hr</td>
+                                    <td>Rp{{ number_format($item->total_harga,0,",",".") }}</td>
+                                    <td>{{ $item->status == "accept" ? 'Lunas' : 'Belum Lunas' }} </td>
                                     <td>
-                                         <a href="{{ route('materi.edit' , $item->id) }}" class="btn btn-sm btn-info">
+                                         <a href="{{ route('transaction.edit' , $item->id) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
                                     <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $item->id }}">
@@ -36,10 +44,10 @@
                                 </tr>
                                 @empty
                                 <tr>
-                                    <td colspan="3" class="text-center">Belum ada data</td>
+                                    <td colspan="7" class="text-center">Belum ada data</td>
                                 </tr>
                                 @endforelse
-                        </tbody> --}}
+                        </tbody>
 
 
                     </table>

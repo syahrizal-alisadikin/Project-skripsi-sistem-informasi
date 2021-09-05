@@ -34,6 +34,7 @@ class InstrukturController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'alamat' => $request->alamat,
+            'jenis_kelamin' => $request->jenis_kelamin,
             'status' => $request->status,
         ]);
 
@@ -50,6 +51,7 @@ class InstrukturController extends Controller
 
     public function update(Request $request,$id)
     {
+        // dd($request->all());
         $instruktur = Instruktur::findOrFail($id);
         $this->validate($request, [
             'name' => 'required',
@@ -63,6 +65,7 @@ class InstrukturController extends Controller
             'email' => $request->email,
             'phone' => $request->phone,
             'alamat' => $request->alamat,
+            'jenis_kelamin' => $request->jenis_kelamin,
             'status' => $request->status,
         ]);
         return redirect()->route('instruktur.index')->with('success','data berhasil diupdate!!');

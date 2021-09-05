@@ -16,15 +16,13 @@
           </div>
         </div>
       </section>
-      <section class="class-surf my-4">
+      <section class="class-surf" style="margin-top: 100px">
         <div class="container">
-          <div class="container-fluid">
-            <div class="row">
+            <div class="row my-5">
               <div class="col-lg-12 mx-auto text-center" data-aos="fade-up">
                 <h2 class="font-weight-bold">Kelas Selancar Air</h2>
               </div>
             </div>
-          </div>
           <div class="row">
           @forelse ($kelas as $class)
             <div class="col-md-6 col-sm-12 ">
@@ -32,7 +30,7 @@
                 <div class="products-thumbnail">
                 <img src="{{ $class->image }}" class="img-fluid products-image">
                 </div>
-                  <div class="products-text">{{$class->name}}</div>
+                  <div class="products-text">{{$class->type}}</div>
                   <a class="btn btn-join p-1 mt-1" href="{{ route('detail', $class->slug) }}">Join
                   </a>
               </div>
@@ -47,7 +45,7 @@
           </div>
         </div>
       </section>
-      <section class="store-new-products">
+      <section class="store-new-products" style="margin-top: 100px">
         <div class="container">
           <div class="row">
             <div class="col-12">
@@ -72,4 +70,5 @@
         </div>
       </section>
     </div>
+@include('includes.footer')
 @endsection

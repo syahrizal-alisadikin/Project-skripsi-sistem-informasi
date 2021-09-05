@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/Detail-Class/{id}', 'UserController@detail')->name('detail');
 // Route::get('/Payment-Class', 'UserController@payment')->name('payment');
-Route::get('/Class', 'UserController@kelas')->name('class');
+Route::get('/Kelas', 'UserController@kelas')->name('class')->middleware('auth');
 Route::post('/Checkout', 'UserController@checkout')->name('checkout');
 Route::post('/Payment-Class/{id}', 'UserController@payment')
     ->name('payment');

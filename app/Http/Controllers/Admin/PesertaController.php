@@ -11,7 +11,14 @@ class PesertaController extends Controller
 {
     public function index()
     {
-        $peserta = Transaction::with('peserta')->where('status','accept')->get();
+        $peserta = Transaction::with('peserta.user')->where('status','accept')->get();
+        // dd($peserta);
         return view('pages.admin.peserta.index',compact('peserta'));
+    }
+
+    public function edit($id)
+    {
+        $peserta = Peserta::findOrFail($id);
+        return view('pages.admin.peserta.edit',compact('peserta'));
     }
 }

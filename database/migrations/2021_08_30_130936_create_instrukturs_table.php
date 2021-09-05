@@ -19,6 +19,7 @@ class CreateInstruktursTable extends Migration
             $table->string('alamat');
             $table->string('phone');
             $table->string('email');
+            $table->string('Jenis_kelamin');
             $table->string('status');
             $table->softDeletes();
             $table->timestamps();

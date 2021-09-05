@@ -42,7 +42,10 @@
                       </td>
                     </tr>
                 @empty
-
+                    <tr>
+                      <td colspan="6" class="text-center"> Belum ada kelas {{ Auth::user()->name }}</td>
+                      
+                    </tr>
                 @endforelse
                   
                 </tbody>
@@ -54,4 +57,6 @@
     </div>
   </section>
 </div>
+
+@include('includes.footer')
 @endsection

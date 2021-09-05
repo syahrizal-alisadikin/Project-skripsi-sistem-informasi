@@ -51,6 +51,18 @@
                                 @enderror
                             </div>
                         </div>
+                         <div class="form-group row">
+                            <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Jenis Kelamin') }}</label>
+
+                            <div class="col-md-6">
+                            
+                                <select name="jenis_kelamin" class="form-control" id="">
+                                    <option value="Laki Laki">Laki Laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                </select>
+                              
+                            </div>
+                        </div>
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 

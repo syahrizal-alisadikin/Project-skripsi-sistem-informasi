@@ -12,6 +12,6 @@ class Transaction extends Model
 
     public function peserta()
     {
-        return $this->belongsTo(Peserta::class,'id','peserta_id');
+        return $this->belongsTo(Peserta::class,'peserta_id','id');
     }
 }

@@ -81,7 +81,7 @@
                  @csrf
                 <div class="form-group">
                   <label>Kedatangan</label>
-                  <input type="date" class="form-control" name="kedatangan" />
+                  <input type="date" class="form-control" name="kedatangan" required />
                 </div>
                 <div class="form-group">
                   <label>Duration</label>

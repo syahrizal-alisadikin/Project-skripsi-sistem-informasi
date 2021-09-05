@@ -20,6 +20,10 @@ class Peserta extends Model
         return $this->belongsTo(Kelas::class, 'kelas_id', 'id');
     }
 
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
     /**
      * Get the user associated with the Peserta
      *

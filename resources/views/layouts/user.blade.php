@@ -21,7 +21,7 @@
       data-aos="fade-down"
     >
       <div class="container">
-        <a class="navbar-brand" href="/index.html">
+        <a class="navbar-brand" href="{{route('home')}}">
           <div class="card bg-dark" style="width: 2rem; height: 2rem;">
           </div>
         </a>
@@ -39,7 +39,7 @@
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
+            <li class="nav-item  {{ Request::is('/*') ? ' active' :  '' }}">
               <a class="nav-link" href="{{route('home')}}"
                 >Beranda <span class="sr-only">(current)</span></a
               >
@@ -47,11 +47,13 @@
             <li class="nav-item">
               <a class="nav-link" href="#">Tutorial</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Jadwal</a>
+           
+            <li class="nav-item {{ Request::is('Kelas*') ? ' active' :  '' }}">
+              <a class="nav-link" href="{{ route('class') }}">Kelas</a>
             </li>
+            
             <li class="nav-item">
-              <a class="nav-link" href="#">Perbaikan</a>
+              <a class="nav-link" href="#">Tentang</a>
             </li>
             @guest
             <li class="nav-item">
@@ -102,17 +104,7 @@
   </div>
       </div>
       <!-- End of Main Content -->
-    <footer class="mt-5">
-      <div class="container">
-        <div class="row mb-auto">
-          <div class="col-12 text-center">
-            <div class="pt-3 pb-2">
-              <p><i>2021 Copyright Store Apache Surf</i></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    
     <!-- Bootstrap core JavaScript -->
     <script src="{{url('/vendor/jquery/jquery.slim.min.js')}}"></script>
     <script src="{{url('/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
@@ -121,6 +113,43 @@
       AOS.init();
     </script>
     <script src="{{url('script/navbar-scroll.js')}}"></script>
+    <script>
+    //sweetalert for success or error message
+    @if(session()->has('success'))
+        swal({
+            type: "success",
+            icon: "success",
+            title: "BERHASIL!",
+            text: "{{ session('success') }}",
+            timer: 5000,
+            showConfirmButton: false,
+            showCancelButton: false,
+            buttons: false,
+        });
+        @elseif(session()->has('error'))
+        swal({
+            type: "error",
+            icon: "error",
+            title: "GAGAL!",
+            text: "{{ session('error') }}",
+            timer: 5000,
+            showConfirmButton: false,
+            showCancelButton: false,
+            buttons: false,
+        });
+        @elseif(session()->has('info'))
+        swal({
+            type: "info",
+            icon: "info",
+            title: "INFO!",
+            text: "{{ session('info') }}",
+            timer: 5000,
+            showConfirmButton: false,
+            showCancelButton: false,
+            buttons: false,
+        });
+        @endif
+  </script>
     @yield('addon-script')
   </body>
 </html>

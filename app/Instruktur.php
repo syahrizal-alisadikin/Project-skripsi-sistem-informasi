@@ -8,5 +8,5 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Instruktur extends Model
 {
     use SoftDeletes;
-    protected $fillable = ['name','alamat','phone','email','status'];
+    protected $fillable = ['name','alamat','phone','email','status','jenis_kelamin'];
 }

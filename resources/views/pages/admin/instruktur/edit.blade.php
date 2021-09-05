@@ -41,6 +41,13 @@
                                         </span>
                                     @enderror   
                                 </div>
+                                 <div class="form-group">
+                                    <label for="name">Jenis Kelamin</label>
+                                     <select name="jenis_kelamin" class="form-control" id="">
+                                        <option value="Laki Laki" {{ $instruktur->jenis_kelamin == "Laki Laki" ? 'selected' : '' }} >Laki Laki</option>
+                                        <option value="Perempuan" {{ $instruktur->jenis_kelamin == "Perempuan" ? 'selected' : '' }}>Perempuan</option>
+                                    </select>
+                                </div>
                                 <div class="form-group">
                                     <label for="name">Status</label>
                                     <select name="status" class="form-control" id="">

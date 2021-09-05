@@ -3,12 +3,14 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Transaction;
 use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
     public function index()
     {
-        return view('pages.admin.transaction.index');
+        $transactions = Transaction::with('peserta')->get();
+        return view('pages.admin.transaction.index',compact('transactions'));
     }
 }
