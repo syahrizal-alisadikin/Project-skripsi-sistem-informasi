@@ -9,6 +9,7 @@ use App\Transaction;
 use App\Peserta;
 use Midtrans\Snap;
 use Midtrans\Config;
+use Midtrans\Notification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
