@@ -16,7 +16,7 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->integer('peserta_id');
-            $table->enum('status',['pending','accept','cancel']);
+            $table->enum('status',['PENDING','SUCCESS','CANCELLED']);
             $table->string('total_harga');
             $table->string('snap_token');
             $table->softDeletes();
