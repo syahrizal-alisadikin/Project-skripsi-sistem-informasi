@@ -34,9 +34,9 @@
                                     <td>Rp{{ number_format($item->total_harga,0,",",".") }}</td>
                                     <td>{{ $item->status == "accept" ? 'Lunas' : 'Belum Lunas' }} </td>
                                     <td>
-                                         <a href="{{ route('transaction.edit' , $item->id) }}" class="btn btn-sm btn-info">
+                                         {{-- <a href="{{ route('transaction.edit' , $item->id) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-pencil-alt"></i>
-                                    </a>
+                                    </a> --}}
                                     <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $item->id }}">
                                                 <i class="fa fa-trash"></i>
                                             </button>
