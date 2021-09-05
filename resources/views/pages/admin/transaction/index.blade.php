@@ -32,7 +32,7 @@
                                     <td>{{ $item->peserta->kelas->type }}</td>
                                     <td>{{ $item->peserta->durasi }}hr</td>
                                     <td>Rp{{ number_format($item->total_harga,0,",",".") }}</td>
-                                    <td>{{ $item->status == "accept" ? 'Lunas' : 'Belum Lunas' }} </td>
+                                    <td>{{ $item->status == "SUCCESS" ? 'Lunas' : 'Belum Lunas' }} </td>
                                     <td>
                                          {{-- <a href="{{ route('transaction.edit' , $item->id) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-pencil-alt"></i>
