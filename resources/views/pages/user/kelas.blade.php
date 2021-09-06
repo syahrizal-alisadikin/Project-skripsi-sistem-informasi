@@ -15,7 +15,7 @@
             <div class="col-12">
               <table class="table table-responsive" style="border: 0">
                 <thead>
-                  <tr>
+                  <tr class="text-center">
                     <th style="width: 20%">Nama Kelas</th>
                     <th style="width: 20%">Kedatangan</th>
                     <th style="width: 20%">Durasi</th>
@@ -26,19 +26,19 @@
                 </thead>
                 <tbody>
                 @forelse ($peserta as $murid)
-                  <tr>
+                  <tr class="text-center">
                       <td>{{ $murid->kelas->name }}</td>
                       <td>{{ $murid->kedatangan}}</td>
                       <td>{{ $murid->durasi}}</td>
-                      <td>Rp. {{ $murid->transaction->total_harga}}</td>
+                      <td>{{ moneyFormat($murid->transaction->total_harga)}}</td>
                       <td>{{ $murid->transaction->status }}</td>
                       <td>
-                        <button
+                        <a href="{{ route('paymentDetail',$murid->id) }}"
                           class="btn btn-started w-100"
                           style="background-color: #ccccccb4"
                         >
                           Detail
-                        </button>
+                        </a>
                       </td>
                     </tr>
                 @empty

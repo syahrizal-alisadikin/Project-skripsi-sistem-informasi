@@ -62,7 +62,7 @@ class UserController extends Controller
     }
     public function detailPay(Request $request, $id)
     {
-        
+        dd($id);
     }
     public function checkout(Request $request)
     {
@@ -111,7 +111,7 @@ class UserController extends Controller
 
     public function callback(Request $request)
     {
- // Set konfigurasi midtrans
+        // Set konfigurasi midtrans
         Config::$serverKey = config('services.midtrans.serverKey');
         Config::$isProduction = config('services.midtrans.isProduction');
         Config::$isSanitized = config('services.midtrans.isSanitized');

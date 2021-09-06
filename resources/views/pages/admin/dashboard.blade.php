@@ -19,7 +19,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    {{-- <h5>{{ moneyFormat($revenueMonth) }}</h5> --}}
+                    <h5>{{ moneyFormat($revenueMonth) }}</h5>
                 </div>
             </div>
         </div>
@@ -32,7 +32,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    {{-- <h5>{{ moneyFormat($revenueYear) }}</h5> --}}
+                    <h5>{{ moneyFormat($revenueYear) }}</h5>
                 </div>
             </div>
         </div>
@@ -45,7 +45,7 @@
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    {{-- <h5>{{ moneyFormat($revenueAll) }}</h5> --}}
+                    <h5>{{ moneyFormat($revenueAll) }}</h5>
                 </div>
             </div>
         </div>
@@ -55,14 +55,14 @@
     <div class="row">
 
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-4 col-md-6 mb-4">
             <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">PENDING
                             </div>
-                            {{-- <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pending }}</div> --}}
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $pending }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-circle-notch fa-spin fa-2x" style="color: #4d72df"></i>
@@ -73,14 +73,14 @@
         </div>
 
         <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-4 col-md-6 mb-4">
             <div class="card border-left-success shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">SUCCESS
                             </div>
-                            {{-- <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $success }}</div> --}}
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $success }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-check-circle fa-2x" style="color:#1cc88a"></i>
@@ -91,14 +91,14 @@
         </div>
 
         <!-- Pending Requests Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
+        <div class="col-xl-4 col-md-6 mb-4">
             <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body">
                     <div class="row no-gutters align-items-center">
                         <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">EXPIRED
+                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">CANCEL
                             </div>
-                            {{-- <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $expired }}</div> --}}
+                            <div class="h5 mb-0 font-weight-bold text-gray-800">{{ $expired }}</div>
                         </div>
                         <div class="col-auto">
                             <i class="fas fa-exclamation-triangle fa-2x" style="color:#f6c23e"></i>
@@ -108,26 +108,7 @@
             </div>
         </div>
 
-        <!-- Earnings (Monthly) Card Example -->
-        <div class="col-xl-3 col-md-6 mb-4">
-            <div class="card border-0 border-left-danger shadow h-100 py-2">
-                <div class="card-body">
-                    <div class="row no-gutters align-items-center">
-                        <div class="col mr-2">
-                            <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">FAILED</div>
-                            <div class="row no-gutters align-items-center">
-                                <div class="col-auto">
-                                    {{-- <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ $failed }}</div> --}}
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-auto">
-                            <i class="fas fa-times-circle fa-2x" style="color:darkred"></i>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+       
     </div>
 </div>
 @endsection
