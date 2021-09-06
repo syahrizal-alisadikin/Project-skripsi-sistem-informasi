@@ -11,6 +11,7 @@ use Midtrans\Snap;
 use Midtrans\Config;
 use Midtrans\Notification;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -76,11 +77,16 @@ class UserController extends Controller
             'durasi' => $request->durasi,
             'kedatangan' => $request->kedatangan
         ]);
+        $email = Auth::user()->email;
         $transaction = Transaction::create([
             'peserta_id' => $peserta->id,
             'status' => 'pending',
             'total_harga' => $request->total_harga
         ]);
+        Mail::send('email.beli-kelas', array('order' => $transaction), function ($pesan) use ($email) {
+                            $pesan->to($email)->subject('Transaksi Membeli Kelas Apache Surf Club');
+                            $pesan->from(env('agung.tanjung0404@gmail.com', 'agung.tanjung0404@gmail.com'), 'Apache Surf Club');
+                            });
         // Buat transaksi ke midtrans kemudian save snap tokennya.
             $payload = [
                 'transaction_details' => [
@@ -165,37 +171,11 @@ class UserController extends Controller
         // Kirimkan email
         if ($transaction)
         {
-            if($status == 'capture' && $fraud == 'accept' )
-            {
-                //
-            }
-            else if ($status == 'settlement')
-            {
-                //
-            }
-            else if ($status == 'success')
-            {
-                //
-            }
-            else if($status == 'capture' && $fraud == 'challenge' )
-            {
-                return response()->json([
-                    'meta' => [
-                        'code' => 200,
-                        'message' => 'Midtrans Payment Challenge'
-                    ]
-                ]);
-            }
-            else
-            {
-                return response()->json([
-                    'meta' => [
-                        'code' => 200,
-                        'message' => 'Midtrans Payment not Settlement'
-                    ]
-                ]);
-            }
-
+            $email = $transaction->peserta->user->email;
+            Mail::send('email.bayar-kelas', array('order' => $transaction), function ($pesan) use ($email) {
+                            $pesan->to($email)->subject('Transaksi Membeli Kelas Apache Surf Club');
+                            $pesan->from(env('agung.tanjung0404@gmail.com', 'agung.tanjung0404@gmail.com'), 'Apache Surf Club');
+                            });
             return response()->json([
                 'meta' => [
                     'code' => 200,
