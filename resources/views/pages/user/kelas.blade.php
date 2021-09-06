@@ -29,7 +29,7 @@
                   <tr class="text-center">
                       <td>{{ $murid->kelas->name }}</td>
                       <td>{{ $murid->kedatangan}}</td>
-                      <td>{{ $murid->durasi}}</td>
+                      <td>{{ $murid->durasi}} Hari</td>
                       <td>{{ moneyFormat($murid->transaction->total_harga)}}</td>
                       <td>{{ $murid->transaction->status }}</td>
                       <td>
