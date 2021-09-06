@@ -62,7 +62,10 @@ class UserController extends Controller
     }
     public function detailPay(Request $request, $id)
     {
-        dd($id);
+         $peserta = Peserta::with([
+            'kelas','transaction'
+        ])->findOrFail($id);
+        return view('pages.user.detailPayment',compact('peserta'));
     }
     public function checkout(Request $request)
     {

@@ -22,37 +22,37 @@
               >
                 <div class="form-inline justify-content-between">
                   <p>Nama Kelas</p>
-                  <p>Beginer</p>
+                  <p>{{ $peserta->kelas->name }}</p>
                 </div>
                 <div class="form-inline justify-content-between">
                   <p>Kedatangan</p>
-                  <p>1-9-2021</p>
+                  <p>{{ $peserta->kedatangan }}</p>
                 </div>
                 <div class="form-inline justify-content-between">
                   <p>Durasi</p>
-                  <p>3 hari</p>
+                  <p>{{ $peserta->durasi }} hari</p>
                 </div>
                 <div class="form-inline justify-content-between">
                   <p>Total Biaya</p>
-                  <p>Rp. 750.000</p>
+                  <p>{{ moneyFormat($peserta->transaction->total_harga) }}</p>
                 </div>
                 <div class="form-inline justify-content-between">
                   <p>Nama Lengkap</p>
-                  <p>Daniel</p>
+                  <p>{{ $peserta->user->name }}</p>
                 </div>
                 <div class="form-inline justify-content-between">
                   <p>No hp</p>
-                  <p>0858489409590</p>
+                  <p>{{ $peserta->user->phone }}</p>
                 </div>
                 <div class="form-inline justify-content-between">
                   <p>E-mail</p>
-                  <p>daniel@gmail.com</p>
+                  <p>{{ $peserta->user->email }}</p>
                 </div>
               </div>
               <div class="col-lg-4 col-md-4 col-sm-6 col-xs-6 mx-auto">
                 <div class="form-inline justify-content-between">
                   <p>Nama</p>
-                  <p>Daniel</p>
+                  <p>{{ $peserta->user->name }}</p>
                 </div>
                 <div class="form-inline justify-content-between">
                   <p>Status Pembayaran</p>
@@ -64,19 +64,14 @@
                     font-weight-bold
                   "
                 >
-                  <p>Belum Lunas</p>
+                  @if ($peserta->transaction->status == "SUCCESS")
+                      <p>Lunas</p>
+                  @else
+                      <p>Belum Lunas</p>
                   <small>Segera melakukan pembayaran</small>
+                  @endif
                 </div>
-                <div
-                  class="
-                    form-inline
-                    justify-content-between
-                    font-weight-bold
-                  "
-                >
-                  <p>Belum Lunas</p>
-                  <small>Segera melakukan pembayaran</small>
-                </div>
+               
                 <div
                   class="
                     form-inline

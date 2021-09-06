@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/Detail-Class/{id}', 'UserController@detail')->name('detail');
-Route::get('/Detail-Pay-Class/{id}', 'UserController@detailPay')->name('paymentDetail');
+Route::get('/Kelas/{id}', 'UserController@detailPay')->name('paymentDetail');
 Route::get('/Kelas', 'UserController@kelas')->name('class')->middleware('auth');
 Route::post('/Checkout', 'UserController@checkout')->name('checkout');
 Route::post('/Payment-Class/{id}', 'UserController@payment')
