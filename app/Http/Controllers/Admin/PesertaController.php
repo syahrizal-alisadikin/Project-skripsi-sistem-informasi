@@ -28,7 +28,7 @@ class PesertaController extends Controller
     {
         $peserta = Peserta::findOrFail($id);
         $peserta->update([
-            'kelas' => $request->kelas,
+            'kelas_id' => $request->kelas,
             'durasi' => $request->durasi,
         ]);
 
