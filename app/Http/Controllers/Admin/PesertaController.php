@@ -35,4 +35,19 @@ class PesertaController extends Controller
         return redirect()->route('peserta.index')->with('success','data berhasil diupdate');
 
     }
+
+    public function destroy($id)
+    {
+        $peserta = Transaction::with('peserta.user')->findOrFail($id);
+        $peserta->delete();
+         if($peserta){
+            return response()->json([
+                'status' => 'success'
+            ]);
+        }else{
+            return response()->json([
+                'status' => 'error'
+            ]);
+        }
+    }
 }

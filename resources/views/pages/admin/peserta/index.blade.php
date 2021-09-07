@@ -29,7 +29,7 @@
                             <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->peserta->user->name }}</td>
-                                    <td>{{ $item->peserta->kelas->type }}</td>
+                                    <td>{{ $item->peserta->kelas->name }}</td>
                                     <td>{{ $item->peserta->durasi }}Hr</td>
                                     <td>{{ $item->peserta->kedatangan }} </td>
                                     <td>{{ $item->peserta->kelas->instruktur->name }} </td>
