@@ -60,7 +60,7 @@
                                 </div>
                                  <div class="form-group">
                                     <label for="umur">Umur</label>
-                                    <input type="number" class="form-control @error('umur') is-invalid @enderror" value="{{ old('umur',$user->usia) }}" id="umur" name="umur" placeholder="contoh : 50"  required>
+                                    <input type="number" class="form-control @error('umur') is-invalid @enderror" value="{{ old('umur',$user->umur) }}" id="umur" name="umur" placeholder="contoh : 50"  required>
                                     @error('berat_badan')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
