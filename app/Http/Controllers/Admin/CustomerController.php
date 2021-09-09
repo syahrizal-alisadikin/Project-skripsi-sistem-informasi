@@ -54,7 +54,7 @@ class CustomerController extends Controller
                 'umur' => $request->umur,
                 'password' => Hash::make($request->password),
             ]);
-        return redirect()->route('customer.index')->with('success','Data Berhasil ditambahkan!!');
+        return redirect()->route('users.index')->with('success','Data Berhasil ditambahkan!!');
     }
 
     public function edit($id)
@@ -112,7 +112,7 @@ class CustomerController extends Controller
 
         }
 
-        return redirect()->route('customer.index')->with('success','Data Berhasil diupdate !!');
+        return redirect()->route('users.index')->with('success','Data Berhasil diupdate !!');
 
     }
 
