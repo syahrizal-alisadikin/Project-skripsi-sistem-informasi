@@ -39,6 +39,33 @@
                                     @enderror   
                                 </div>
                                 <div class="form-group">
+                                    <label for="tinggi_badan">Tinggi Badan</label>
+                                    <input type="number" class="form-control @error('tinggi_badan') is-invalid @enderror" value="{{ old('tinggi_badan') }}" id="tinggi_badan" name="tinggi_badan" placeholder="contoh : 170 "  required>
+                                    @error('tinggi_badan')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror   
+                                </div>
+                                 <div class="form-group">
+                                    <label for="tinggi_badan">Berat Badan</label>
+                                    <input type="number" class="form-control @error('berat_badan') is-invalid @enderror" value="{{ old('berat_badan') }}" id="berat_badan" name="berat_badan" placeholder="contoh : 50"  required>
+                                    @error('berat_badan')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror   
+                                </div>
+                                 <div class="form-group">
+                                    <label for="umur">Umur</label>
+                                    <input type="number" class="form-control @error('umur') is-invalid @enderror" value="{{ old('umur') }}" id="umur" name="umur" placeholder="contoh : 50"  required>
+                                    @error('berat_badan')
+                                        <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @enderror   
+                                </div>
+                                <div class="form-group">
                                     <label for="name">Roles</label>
                                     <select name="roles" class="form-control" id="">
                                         

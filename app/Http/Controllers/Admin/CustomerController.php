@@ -49,6 +49,9 @@ class CustomerController extends Controller
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'roles' => $request->roles,
+                'tinggi_badan' => $request->tinggi_badan,
+                'berat_badan' => $request->berat_badan,
+                'umur' => $request->umur,
                 'password' => Hash::make($request->password),
             ]);
         return redirect()->route('customer.index')->with('success','Data Berhasil ditambahkan!!');
@@ -91,6 +94,9 @@ class CustomerController extends Controller
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'roles' => $request->roles,
+                'tinggi_badan' => $request->tinggi_badan,
+                'berat_badan' => $request->berat_badan,
+                'umur' => $request->umur,
                 'password' => Hash::make($request->password),
             ]);
         }else{
@@ -99,6 +105,9 @@ class CustomerController extends Controller
                 'phone' => $request->phone,
                 'email' => $request->email,
                 'roles' => $request->roles,
+                'tinggi_badan' => $request->tinggi_badan,
+                'berat_badan' => $request->berat_badan,
+                'umur' => $request->umur,
             ]);
 
         }
