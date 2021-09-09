@@ -15,8 +15,11 @@
                             <tr class="text-center">
                                 <th>No</th>
                                 <th>Name</th>
+                                <th>JK</th>
+                                <th>Umur</th>
+                                <th>TB/BB</th>
                                 <th>Kelas</th>
-                                <th>Duration</th>
+                                <th>Durasi</th>
                                 <th>Kedatangan</th>
                                 <th>Instruktur</th>
                                 
@@ -29,6 +32,9 @@
                             <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
                                     <td>{{ $item->peserta->user->name }}</td>
+                                    <td>{{ $item->peserta->user->jenis_kelamin =="Laki Laki" ? 'L' : 'P' }}</td>
+                                    <td>{{ $item->peserta->user->umur }}</td>
+                                    <td>{{ $item->peserta->user->tinggi_badan ?? '-' }}/{{ $item->peserta->user->berat_badan ?? '-' }}</td>
                                     <td>{{ $item->peserta->kelas->name }}</td>
                                     <td>{{ $item->peserta->durasi }}Hr</td>
                                     <td>{{ $item->peserta->kedatangan }} </td>
