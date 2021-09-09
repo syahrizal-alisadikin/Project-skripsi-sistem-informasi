@@ -66,6 +66,14 @@
                                     @enderror   
                                 </div>
                                 <div class="form-group">
+                                    <label for="name">Jenis Kelamin</label>
+                                    <select name="jenis_kelamin" class="form-control" id="">
+                                            <option value="Laki Laki">Laki Laki</option>
+                                            <option value="Perempuan">Perempuan</option>
+                                        
+                                    </select>
+                                </div>
+                                <div class="form-group">
                                     <label for="name">Roles</label>
                                     <select name="roles" class="form-control" id="">
                                         
