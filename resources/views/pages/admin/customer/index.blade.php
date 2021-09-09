@@ -6,7 +6,7 @@
         
         <div class="card mb-4">
             <div class="card-header">
-              <a href="{{ route('customer.create') }}" class="btn btn-success">Tambah Customer</a>
+              <a href="{{ route('users.create') }}" class="btn btn-success">Tambah User</a>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -32,7 +32,7 @@
                                     <td>{{ $item->email }}</td>
                                     <td>{{ $item->roles }}</td>
                                     <td>
-                                         <a href="{{ route('customer.edit' , $item->id) }}" class="btn btn-sm btn-info">
+                                         <a href="{{ route('users.edit' , $item->id) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-pencil-alt"></i>
                                     </a>
                                     <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $item->id }}">
@@ -76,7 +76,7 @@
 
                     //ajax delete
                     jQuery.ajax({
-                        url: "{{ route("customer.index") }}/"+id,
+                        url: "{{ route("users.index") }}/"+id,
                         data:     {
                             "id": id,
                             "_token": token

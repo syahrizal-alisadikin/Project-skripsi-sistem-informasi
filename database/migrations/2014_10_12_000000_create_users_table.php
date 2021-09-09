@@ -20,7 +20,10 @@ class CreateUsersTable extends Migration
             $table->string('phone')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->enum('roles',['ADMIN','USER'])->default('USER');
-            $table->string('Jenis_kelamin');
+            $table->string('jenis_kelamin');
+            $table->integer('tinggi_badan');
+            $table->integer('berat_badan');
+            $table->integer('umur');
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();

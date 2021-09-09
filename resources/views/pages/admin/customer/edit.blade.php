@@ -10,7 +10,7 @@
                         
                         <div class="card-body">
                             <h4 class="text-center">Update user</h4>
-                            <form action="{{route('customer.update',$user->id)}}" method="POST" enctype="multipart/form-data">
+                            <form action="{{route('users.update',$user->id)}}" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method("PUT")
                                 <div class="form-group">

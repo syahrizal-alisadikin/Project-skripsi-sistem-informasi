@@ -106,10 +106,10 @@
         <span>INCLUDES</span>
       </a>
     </li>
-     <li class="nav-item {{ Request::is('admin/customer*') ? ' active' :  '' }}">
-        <a class="nav-link" href="{{ route('customer.index') }}">
+     <li class="nav-item {{ Request::is('admin/users*') ? ' active' :  '' }}">
+        <a class="nav-link" href="{{ route('users.index') }}">
           <i class="fas fa-users"></i>
-          <span>CUSTOMERS</span>
+          <span>USERS</span>
         </a>
     </li>
      <!-- Nav Item - Pages Collapse Menu -->

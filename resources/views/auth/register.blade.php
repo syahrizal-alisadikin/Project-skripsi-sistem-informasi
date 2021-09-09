@@ -64,6 +64,45 @@
                             </div>
                         </div>
                         <div class="form-group row">
+                            <label for="tinggi_badan" class="col-md-4 col-form-label text-md-right">{{ __('Tinggi Badan') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="tinggi_badan" type="number" class="form-control @error('tinggi_badan') is-invalid @enderror" name="tinggi_badan" value="{{ old('tinggi_badan') }}" required  autofocus>
+
+                                @error('tinggi_badan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="berat_badan" class="col-md-4 col-form-label text-md-right">{{ __('Tinggi Badan') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="berat_badan" type="number" class="form-control @error('berat_badan') is-invalid @enderror" name="berat_badan" value="{{ old('berat_badan') }}" required  autofocus>
+
+                                @error('berat_badan')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="umur" class="col-md-4 col-form-label text-md-right">{{ __('Tinggi Badan') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="umur" type="number" class="form-control @error('umur') is-invalid @enderror" name="umur" value="{{ old('umur') }}" required  autofocus>
+
+                                @error('umur')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">

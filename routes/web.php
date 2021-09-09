@@ -35,7 +35,7 @@ Route::prefix('admin')
         Route::resource('transaction','TransactionController');
         Route::resource('materi','MateriController');
         Route::resource('includes','IncludesController');
-        Route::resource('customer','CustomerController');
+        Route::resource('users','CustomerController');
         Route::resource('peserta','PesertaController');
         Route::resource('instruktur','InstrukturController');
     });
