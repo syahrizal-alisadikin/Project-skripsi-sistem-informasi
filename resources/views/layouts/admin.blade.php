@@ -112,6 +112,7 @@
           <span>USERS</span>
         </a>
     </li>
+    
      <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item {{ Request::is('admin/peserta*') ? ' active' :  '' }} {{ Request::is('admin/instruktur*') ? ' active' :  '' }}">
         <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">

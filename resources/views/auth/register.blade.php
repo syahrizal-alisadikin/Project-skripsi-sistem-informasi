@@ -77,7 +77,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="berat_badan" class="col-md-4 col-form-label text-md-right">{{ __('Tinggi Badan') }}</label>
+                            <label for="berat_badan" class="col-md-4 col-form-label text-md-right">{{ __('Berat Badan') }}</label>
 
                             <div class="col-md-6">
                                 <input id="berat_badan" type="number" class="form-control @error('berat_badan') is-invalid @enderror" name="berat_badan" value="{{ old('berat_badan') }}" required  autofocus>
@@ -90,7 +90,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="umur" class="col-md-4 col-form-label text-md-right">{{ __('Tinggi Badan') }}</label>
+                            <label for="umur" class="col-md-4 col-form-label text-md-right">{{ __('Umur') }}</label>
 
                             <div class="col-md-6">
                                 <input id="umur" type="number" class="form-control @error('umur') is-invalid @enderror" name="umur" value="{{ old('umur') }}" required  autofocus>
