@@ -13,6 +13,7 @@
 
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link href="{{url('style/main.css')}}" rel="stylesheet" />
+    {{-- <link href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/6.1.95/css/materialdesignicons.min.css" rel="stylesheet"> --}}
   </head>
 
   <body>
@@ -108,6 +109,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{{url('/vendor/jquery/jquery.slim.min.js')}}"></script>
     <script src="{{url('/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();

@@ -1,5 +1,7 @@
 @extends('layouts.user', ['title' => 'Apache Surf'])
 
+@push('')
+
 @section('content')
 <div class="page-content">
   <section class="class-surf my-4">
@@ -20,6 +22,7 @@
                   font-weight-bold
                 "
               >
+              
                 <div class="form-inline justify-content-between">
                   <p>Nama Kelas</p>
                   <p>{{ $peserta->kelas->name }}</p>
