@@ -41,21 +41,17 @@
                 </div>
                  <div class="form-inline justify-content-between">
                   <p>Status Pembayaran</p>
-                </div>
-                <div
-                  class="
-                    form-inline
-                    justify-content-between
-                    font-weight-bold
-                  "
-                >
                   @if ($peserta->transaction->status == "SUCCESS")
-                      <p>Lunas</p>
+                      <p class="font-weight-bold ">Lunas</p>
+                  @elseif($peserta->transaction->status == "PENDING")
+
+                      <p class="font-weight-bold ">Belum Lunas</p>
                   @else
-                      <p>Belum Lunas</p>
-                  <small>Segera melakukan pembayaran</small>
+                      <p class="font-weight-bold ">Expired</p>
+                  
                   @endif
                 </div>
+               
                 <div class="form-inline justify-content-between">
                   <p>Nama Lengkap</p>
                   <p>{{ $peserta->user->name }}</p>
@@ -70,17 +66,39 @@
                 </div>
               </div>
               </div>
-              <div class="row">
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb-sm-3 mb-xs-3">
-                  <div class="component-products">
+              <div class="row justify-content-center">
+               @if ($peserta->transaction->status == "SUCCESS")
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb-sm-3 mb-xs-3">
+                  <div class="component-product">
                     <div class="mx-auto my-3 text-center ml-auto">
-                      <a href="{{ route('midtrans-callback')}}">
-                        <button class="btn btn-join w-100">Checkout</button>
+                      <a href="javascript:void(0)">
+                        <button class="btn btn-join w-100 btn-success">Sudah dibayar</button>
                       </a>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb-sm-3 mb-xs-3">
+               @elseif($peserta->transaction->status == "PENDING")
+                   <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb-sm-3 mb-xs-3">
+                  <div class="component-products">
+                    <div class="mx-auto my-3 text-center ml-auto">
+                      <a href="{{ $peserta->transaction->snap_token }}"  class="btn btn-join w-100">
+                        Checkout
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                @else
+                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb-sm-3 mb-xs-3">
+                  <div class="component-products">
+                    <div class="mx-auto my-3 text-center ml-auto">
+                      <a href="javascript:void(0)">
+                        <button class="btn btn-join w-100">Expired</button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+               @endif
+                {{-- <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb-sm-3 mb-xs-3">
                   <div class="component-products">
                     <div class="mx-auto my-3 text-center ml-auto">
                       <a href="{{ route('payment', $peserta->id)}}">
@@ -88,10 +106,10 @@
                       </a>
                     </div>
                   </div>
-                </div>
+                </div> --}}
                 <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12 mb-sm-3 mb-xs-3">
-                  <div class="mx-auto text-center ml-auto">
-                    <a href="{{ route('home')}}">
+                  <div class="mx-auto my-3 text-center ml-auto">
+                    <a href="{{ route('class')}}">
                         <button
                           class="btn btn-started w-100"
                           style="background-color: #e7e6e6b4"

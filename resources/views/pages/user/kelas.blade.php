@@ -31,7 +31,17 @@
                       <td>{{ $murid->kedatangan}}</td>
                       <td>{{ $murid->durasi}} Hari</td>
                       <td>{{ moneyFormat($murid->transaction->total_harga)}}</td>
-                      <td>{{ $murid->transaction->status }}</td>
+                      <td>
+                      @if ($murid->transaction->status == "SUCCESS")
+                                            <span class="badge badge-success">Lunas</span>
+                                        @elseif($murid->transaction->status == "PENDING")
+                                        <span class="badge badge-warning">Belum Lunas</span>
+                                        @else  
+                                        <span class="badge badge-danger">Cancel</span>
+
+                                        @endif
+                     
+                      </td>
                       <td>
                         <a href="{{ route('paymentDetail',$murid->id) }}"
                           class="btn btn-started w-100"
@@ -50,9 +60,13 @@
                   
                 </tbody>
               </table>
+              
             </div>
           </div>
         </div>
+        <div style="text-align: center; margin:auto">
+                            {{$peserta->links("vendor.pagination.bootstrap-4")}}
+                        </div>
       </div>
     </div>
   </section>

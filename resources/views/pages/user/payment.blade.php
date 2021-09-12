@@ -30,7 +30,7 @@
                   </div>
                   <div class="form-inline justify-content-between">
                     <p>Total Biaya</p>
-                    <p>Rp. {{ $data['total_harga'] }}</p>
+                    <p>{{ moneyFormat($data['total_harga']) }}</p>
                     <input type="hidden" name="total_harga" value="{{ $data['total_harga'] }}" />
                   </div>
                 </div>

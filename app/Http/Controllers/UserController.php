@@ -56,7 +56,7 @@ class UserController extends Controller
     {
         $peserta = Peserta::where('user_id', Auth::user()->id)->with([
             'kelas','transaction'
-        ])->get();
+        ])->latest()->paginate(5);
         return view('pages.user.kelas', [
             'peserta' => $peserta
         ]);
@@ -66,6 +66,7 @@ class UserController extends Controller
          $peserta = Peserta::with([
             'kelas','transaction'
         ])->findOrFail($id);
+        
         return view('pages.user.detailPayment',compact('peserta'));
     }
     public function checkout(Request $request)
@@ -81,13 +82,49 @@ class UserController extends Controller
         $transaction = Transaction::create([
             'peserta_id' => $peserta->id,
             'status' => 'pending',
-            'total_harga' => $request->total_harga
+            'total_harga' => $request->total_harga,
+            'code' => "Trasaction-" .mt_rand('0000','9999')
         ]);
         Mail::send('email.beli-kelas', array('order' => $transaction), function ($pesan) use ($email) {
                             $pesan->to($email)->subject('Transaksi Membeli Kelas Apache Surf Club');
                             $pesan->from(env('agung.tanjung0404@gmail.com', 'agung.tanjung0404@gmail.com'), 'Apache Surf Club');
                             });
         // Buat transaksi ke midtrans kemudian save snap tokennya.
+            $payload = [
+                'transaction_details' => [
+                    'order_id'      => $transaction->code,
+                    'gross_amount'  => $transaction->total_harga,
+                ],
+                'customer_details' => [
+                    'first_name'       => Auth::user()->name,
+                    'email'            => Auth::user()->email,
+                    'phone'            => Auth::user()->phone,
+                ],
+                'enabled_payments' => array('gopay','bank_transfer'),
+                'vtweb' => array()
+            ];
+
+            try {
+            // Ambil halaman payment midtrans
+            $paymentUrl = Snap::createTransaction($payload)->redirect_url;
+            
+            $transaction->snap_token = $paymentUrl;
+            $transaction->save();
+            
+            // Redirect ke halaman midtrans
+            return redirect($paymentUrl);
+        }
+        catch (Exception $e) {
+            echo $e->getMessage();
+        }
+        // return redirect()->route('class')->with('success', 'Kelas Berhasil Di Tambahkan');
+    }
+
+    public function transaction (Request $request,$id)
+    {
+            $transaction = Transaction::findOrFail($id);
+            dd($transaction);
+         // Buat transaksi ke midtrans kemudian save snap tokennya.
             $payload = [
                 'transaction_details' => [
                     'order_id'      => $transaction->id,
@@ -115,7 +152,6 @@ class UserController extends Controller
         catch (Exception $e) {
             echo $e->getMessage();
         }
-        // return redirect()->route('class')->with('success', 'Kelas Berhasil Di Tambahkan');
     }
 
     public function callback(Request $request)
