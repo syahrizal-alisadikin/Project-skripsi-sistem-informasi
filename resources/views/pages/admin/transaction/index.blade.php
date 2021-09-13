@@ -60,6 +60,9 @@
 
 
                     </table>
+                    <div style="text-align: center;">
+                            {{$transactions->links("vendor.pagination.bootstrap-4")}}
+                        </div>
                 </div>
             </div>
         </div>
