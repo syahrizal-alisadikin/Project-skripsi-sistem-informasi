@@ -28,9 +28,9 @@
                             @forelse ($transactions as $item)
                              <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
-                                    <td>{{ $item->peserta->user->name }}</td>
-                                    <td>{{ $item->peserta->kelas->type }}</td>
-                                    <td>{{ $item->peserta->durasi }}hr</td>
+                                    <td>{{ $item->peserta->user->name ?? null }}</td>
+                                    <td>{{ $item->peserta->kelas->type ?? null }}</td>
+                                    <td>{{ $item->peserta->durasi ?? null }}hr</td>
                                     <td>Rp{{ number_format($item->total_harga,0,",",".") }}</td>
                                     <td>
                                         @if ($item->status == "SUCCESS")
