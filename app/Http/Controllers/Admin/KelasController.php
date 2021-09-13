@@ -32,7 +32,7 @@ class KelasController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'image' => 'required',
+            'image' => 'required|max:2048',
             'type' => 'required',
             'description' => 'required',
             'harga' => 'required',
@@ -97,7 +97,10 @@ class KelasController extends Controller
 
         } else {
             $kelas = Kelas::findOrFail($id);
-
+            $this->validate($request, [
+            'image' => 'required|max:2048',
+            
+        ]);
             //remove old image
             Storage::disk('local')->delete('public/kelas/'.basename($kelas->image));
 
