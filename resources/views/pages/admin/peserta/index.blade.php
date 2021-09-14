@@ -35,10 +35,10 @@
                                     <td>{{ $item->peserta->user->jenis_kelamin =="Laki Laki" ? 'L' : 'P' }}</td>
                                     <td>{{ $item->peserta->user->umur }}</td>
                                     <td>{{ $item->peserta->user->tinggi_badan ?? '-' }}/{{ $item->peserta->user->berat_badan ?? '-' }}</td>
-                                    <td>{{ $item->peserta->kelas->name }}</td>
+                                    <td>{{ $item->peserta->kelas->name  ?? '-'}}</td>
                                     <td>{{ $item->peserta->durasi }}Hr</td>
                                     <td>{{ $item->peserta->kedatangan }} </td>
-                                    <td>{{ $item->peserta->kelas->instruktur->name }} </td>
+                                    <td>{{ $item->peserta->kelas->instruktur->name ?? '-' }} </td>
                                     <td>
                                          <a href="{{ route('peserta.edit' , $item->id) }}" class="btn btn-sm btn-info">
                                         <i class="fas fa-pencil-alt"></i>
