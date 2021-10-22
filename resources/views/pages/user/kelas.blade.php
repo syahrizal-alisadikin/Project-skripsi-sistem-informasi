@@ -30,7 +30,7 @@
                       <td>{{ $murid->kelas->name }}</td>
                       <td>{{ $murid->kedatangan}}</td>
                       <td>{{ $murid->durasi}} Hari</td>
-                      <td>{{ moneyFormat($murid->transaction->total_harga)}}</td>
+                      <td>{{ moneyFormat($murid->transaction->total_harga ?? '-')}}</td>
                       <td>
                       @if ($murid->transaction->status == "SUCCESS")
                                             <span class="badge badge-success">Lunas</span>
@@ -42,13 +42,23 @@
                                         @endif
                      
                       </td>
-                      <td>
+                      <td class="d-flex">
                         <a href="{{ route('paymentDetail',$murid->id) }}"
                           class="btn btn-started w-100"
                           style="background-color: #ccccccb4"
                         >
                           Detail
                         </a>
+                        @if ($murid->transaction->status == "PENDING")
+                             <a href="{{ route('CancelPayment',$murid->id) }}"
+                          class="btn btn-started w-100 ml-3"
+                          style="background-color: #e60321de; color: white"
+                        >
+                          Cancel
+                        </a>
+                        
+
+                        @endif
                       </td>
                     </tr>
                 @empty

@@ -49,6 +49,16 @@
                                     <button onClick="Delete(this.id)" class="btn btn-sm btn-danger" id="{{ $item->id }}">
                                                 <i class="fa fa-trash"></i>
                                             </button>
+                                            @if ($item->status == "PENDING")
+                             <a href="{{ route('CancelPaymentAdmin',$item->peserta_id) }}"
+                          class="btn btn-sm"
+                          style="background-color: #e60321de; color: white"
+                        >
+                          Cancel
+                        </a>
+                        
+
+                        @endif
                                     </td>
                                 </tr>
                                 @empty

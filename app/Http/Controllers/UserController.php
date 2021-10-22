@@ -43,6 +43,8 @@ class UserController extends Controller
     }
     public function payment(Request $request, $id)
     {
+         if(Auth::check()){
+            
         $kelas = Kelas::findOrFail($id);
 
         $data = $request->all();
@@ -51,6 +53,25 @@ class UserController extends Controller
             'kelas' => $kelas,
             'data' => $data
         ]);
+        }else{
+            return redirect('/login');
+        }
+    }
+
+    public function CancelPayment($id)
+    {
+        $transaction = Transaction::where('peserta_id',$id)->first();
+        
+        $transaction->update(['status'=>'CANCELLED']);
+        return redirect()->route('class')->with('success','Berhasil di cancel');
+    }
+
+     public function CancelPaymentAdmin($id)
+    {
+        $transaction = Transaction::where('peserta_id',$id)->first();
+        
+        $transaction->update(['status'=>'CANCELLED']);
+        return redirect()->route('transaction.index')->with('success','Berhasil di cancel');
     }
     public function kelas(Request $request)
     {
@@ -123,7 +144,7 @@ class UserController extends Controller
     public function transaction (Request $request,$id)
     {
             $transaction = Transaction::findOrFail($id);
-            dd($transaction);
+            
          // Buat transaksi ke midtrans kemudian save snap tokennya.
             $payload = [
                 'transaction_details' => [
