@@ -60,10 +60,15 @@ class UserController extends Controller
 
     public function CancelPayment($id)
     {
-        $transaction = Transaction::where('peserta_id',$id)->first();
         
+        $transaction = Transaction::where('peserta_id',$id)->first();
+        // dd($transaction);
+        if($transaction == null){
+            return redirect()->route('class')->with('info','Gagal di cancel');
+        }
         $transaction->update(['status'=>'CANCELLED']);
         return redirect()->route('class')->with('success','Berhasil di cancel');
+
     }
 
      public function CancelPaymentAdmin($id)
@@ -75,7 +80,9 @@ class UserController extends Controller
     }
     public function kelas(Request $request)
     {
-        $peserta = Peserta::where('user_id', Auth::user()->id)->with([
+        $peserta = Peserta::where('user_id', Auth::user()->id)->whereHas('transaction',function($query){
+            $query->where('status', '!=', 'CANCELLED');
+        })->with([
             'kelas','transaction'
         ])->latest()->paginate(5);
         return view('pages.user.kelas', [

@@ -30,7 +30,9 @@
                       <td>{{ $murid->kelas->name }}</td>
                       <td>{{ $murid->kedatangan}}</td>
                       <td>{{ $murid->durasi}} Hari</td>
-                      <td>{{ moneyFormat($murid->transaction->total_harga ?? '-')}}</td>
+                      {{-- <td>{{ $murid->transaction->total_harga ?? "data di hapus"}}</td> --}}
+
+                      <td>{{ moneyFormat($murid->transaction->total_harga)}}</td>
                       <td>
                       @if ($murid->transaction->status == "SUCCESS")
                                             <span class="badge badge-success">Lunas</span>

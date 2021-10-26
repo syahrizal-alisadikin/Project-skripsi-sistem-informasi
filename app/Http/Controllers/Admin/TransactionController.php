@@ -10,7 +10,7 @@ class TransactionController extends Controller
 {
     public function index()
     {
-        $transactions = Transaction::with('peserta')->latest()->paginate(10);
+        $transactions = Transaction::with('peserta')->where('status', '!=', 'CANCELLED')->latest()->paginate(10);
         return view('pages.admin.transaction.index',compact('transactions'));
     }
 

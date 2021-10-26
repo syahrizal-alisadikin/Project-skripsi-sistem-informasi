@@ -31,6 +31,6 @@ class Peserta extends Model
      */
     public function transaction()
     {
-        return $this->hasOne(Transaction::class, 'peserta_id', 'id');
+        return $this->hasOne(Transaction::class, 'peserta_id', 'id')->withTrashed();
     }
 }
