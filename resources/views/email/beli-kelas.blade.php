@@ -115,7 +115,7 @@
                   </tr>
                   <tr>
                     <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
-                      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:16px;line-height:20px;text-align:left;color:#000000;">Yth Sdr Syahrizal,Silahkan lakukan pembayaran sebesar Rp<span style="color:#af9130; font-weight:550">{{ $order->total_harga }}</span></div>
+                      <div style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:16px;line-height:20px;text-align:left;color:#000000;">Yth Ibu/Bapak, Silahkan lakukan pembayaran sebesar Rp<span style="color:#af9130; font-weight:550">{{ $order->total_harga }}</span></div>
                     </td>
                   </tr>
                   {{-- <tr>

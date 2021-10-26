@@ -22,9 +22,8 @@
       data-aos="fade-down"
     >
       <div class="container">
-        <a class="navbar-brand" href="{{route('home')}}">
-          <div class="card bg-dark" style="width: 2rem; height: 2rem;">
-          </div>
+        <a class="navbar-brand mr-5" href="{{route('home')}}">
+          <img src="{{ asset('assets/img/logo-apache.png')  }}" style="width: 4rem; height: 4rem; class="img-profile" >
         </a>
         <button
           class="navbar-toggler"
@@ -45,17 +44,13 @@
                 >Beranda <span class="sr-only">(current)</span></a
               >
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tutorial</a>
-            </li>
+            
            
             <li class="nav-item {{ Request::is('Kelas*') ? ' active' :  '' }}">
               <a class="nav-link" href="{{ route('class') }}">Kelas</a>
             </li>
             
-            <li class="nav-item">
-              <a class="nav-link" href="#">Tentang</a>
-            </li>
+            
             @guest
             <li class="nav-item">
               <a class="nav-link" href="{{ route('login')}}">Login</a>
@@ -109,7 +104,7 @@
     <!-- Bootstrap core JavaScript -->
     <script src="{{url('/vendor/jquery/jquery.slim.min.js')}}"></script>
     <script src="{{url('/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
       AOS.init();
